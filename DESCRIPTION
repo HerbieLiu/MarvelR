@@ -1,0 +1,26 @@
+Package: MarvelR
+Type: Package
+Title: Retrieve Marvel Comics from API
+Version: 0.1.0
+Authors@R: person("Herbie", "Liu", email = "he.liu@columbia.edu", role = c("aut", "cre"))
+Description: Allows one to eassily retrieve and collecty Marvel Comics information from Marvel's 
+    Application program Interface (API), which can be found at the following URL:
+    <https://developer.marvel.com>.
+License: MIT + file LICENSE
+Imports: 
+    httr,
+    tidyr,
+    dplyr,
+    jsonlite,
+    digest,
+    pkgdown
+Suggested:
+    rmarkdown,
+    knitr
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.0.9000
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

@@ -1,0 +1,74 @@
+---
+title: "The MarvelR Package Explained"
+author: "Herbie Liu"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{The MURICA Package Explained}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo=FALSE, out.width = "100%"}
+knitr::include_graphics("marvelpic.jpg")
+```
+
+The `MarvelR` package contains twelve functions: `token_to_query()`, `search_comics()`, `search_characters()`, `search_series()`, `search_creators()`, `search_stories()`, `search_events()`,`get_comics()`, `get_characters()`, `get_series()`, `get_creators()`, and `get_events()`. Marvel API provides users with information on six different types of information, comics, characters, series, creators and stories. Each of the type has ID numbers for all entries. However, unlike Twitter and some other APIs, Marvel does not allow users to search keywords directly, but the users need to first specify the type of information they would like to retrieve. Then depends on wither they would like to dearch by the ID numbers or the keywords/titles/names, they can used either the fucntions start with "search_" or the ones with "get_". 
+
+
+### `token_to_query` Function
+  
+The `token_to_query` function stores the user's tokens and convert it into the requeired authorization query format automatically. For more imformation, please read https://developer.marvel.com/documentation/authorization. The user can also set the number of ruturns prefered in this function too. The limit has to be within 100. 
+
+
+## Comics Related Information
+
+Comics are the physical or digital books/products the users read. 
+
+`search_comics` Function allows users to retrieve **comics** from Marvel either randomly or specifically with refined comics ID and a secondary type of information prefered. For example, if a user want a random selection of comics, the input function can be `search_comics()`. The returning information would includes the comics ID, titile, description and its detailed informaiton like characters, creators, events and sotries (no series retrieval). If the user would like to refine it to a specific comics ID, the input can be `search_comics(id = 1111)`. For this specific comics with ID #1111, it the user further refine his search to retrive only the series information of the Comics#1111, the input coding would be `search_comics(id = 1111, type = "series")` with an output with the Comics ID, name and description.
+
+`get_comics` function allows the user to retrieve  **comics** from Marvel with the keywords of names of the comics. The users need to put in their desired comics names and the retrieval information would include the comics ID, titile, description and its detailed informaiton like characters, creators, events, stories and series.
+
+
+## Characters Related Information
+
+Characters are the people and organizations that appreared in comics. 
+
+`search_characters` function allows users to retrieve **characters** from Marvel either randomly or specifically with refined comics ID and a secondary type of information prefered. The coding instructions will not be iterated since it is similar as the above `search_comics` function. The returning of `search_characters()` includes the character ID, name, description and its detailed informaiton like comics, events, sotries and series (no creator retrieval).
+
+`get_characters` function allows the user to retrieve **characters** from Marvel with the keywords of names of the characters. The user need to put in desired character's name and the retrieval information would include the character ID, titile, description and its detailed informaiton like comics, events, sotries and series (no creator retrieval).
+
+
+## Series Related Information
+
+Series are (usually) the series with a sequentially number list of comics with the same title and volume.
+
+`search_series` function allows users to retrieve **series** from Marvel either randomly or specifically with refined series ID and a secondary type of information prefered. The coding instructions will not be iterated since it is similar as the above `search_comics` function. The returning of `search_series()` includes the series ID, titile, description and its detailed informaiton like comics, events, stories and characters and creators.
+
+`get_series` function allows the user to retrieve **series** from Marvel with the keywords of title of the series. The user need to put in desired series' title and the retrieval information would include the series ID, titile, description and its detailed informaiton like comics, creators, events, sotries and creators.
+
+## Creators Related Information
+
+Creators are the people and entities tahta make comics
+
+`search_creators` function allows users to retrieve **creators** from Marvel either randomly or specifically with refined creaters ID and a secondary type of information prefered. The coding instructions will not be iterated since it is similar as the above `search_comics` function. The returning of `search_creators()` includes the creators ID, name, description and its detailed informaiton like comics, events, stories and series and characters. 
+
+`get_creators` function allows the user to retrieve **creators** from Marvel with the keywords of first and/or last name. The user need to put in desired creator's first/last name and the retrieval information would include the creators ID, titile, description and its detailed informaiton like comics, events, stories, series and characters. 
+
+## Events Related Information
+
+Events are big, universe-changing storyline of Marvel Comics. 
+
+`search_events` function allows users to retrieve **events** from Marvel either randomly or specifically with refined events ID and a secondary type of information prefered. The coding instructions will not be iterated since it is similar as the above `search_comics` function. The returning of `search_events()` includes the events ID, name, description and its detailed informaiton like comics, creators, sotries and series and characters. 
+
+`get_events` function allows the user to retrieve **events** from Marvel with the keywords of event's name. The user need to put in desired event's name and the retrieval information would include the event ID, name, description and its detailed informaiton like comics, creators, characters, sotries and series. 
+
+##Stories Related Information
+
+Stories are the individual components of comics. 
+
+`search_stories` function allows users to retrieve **stories** from Marvel either randomly or specifically with refined storeis ID and a secondary type of information prefered. Most comics have two stories, a cover an an interior story, but some might have more. Some of the stories might be re-created in other comics, but `search_stories()` will always present the original data point. The returning of search_stories() includes the stories ID, titile, description and its detailed informaiton like comics, characters, creators, events and series.
+
+`get_stories` is not available yet since Marvel Developer queries do not have searching stories by names.
+
+
