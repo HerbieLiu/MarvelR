@@ -8,7 +8,7 @@ output:
 
 ``
 
-Marvelr is Designed to make it quicker and easier to retrievel Marvel Comics information from Marvel API prtal. The latest version of MarvelR is 0.1.0.
+MarvelR is Designed to make it quicker and easier to retrievel Marvel Comics information from Marvel API prtal. The latest version of MarvelR is 0.1.0. The MarvelR package contains twelve functions: token_to_query(), search_comics(), search_characters(), search_series(), search_creators(), search_stories(), search_events(),get_comics(), get_characters(), get_series(), get_creators(), and get_events(). Marvel API provides users with information on six different types of information, comics, characters, series, creators and stories which can be retrieved easily from the MarvelR package functions.
 
 ## Installation
 
